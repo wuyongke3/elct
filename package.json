@@ -20,6 +20,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^25.9.3",
     "@vitejs/plugin-vue": "^6.0.7",
     "electron": "^42.1.0",
     "electron-builder": "^26.8.1",
@@ -29,5 +30,8 @@
     "vite-plugin-electron-renderer": "^1.0.0",
     "vue": "^3.5.35",
     "vue-tsc": "^3.3.3"
+  },
+  "dependencies": {
+    "gifsicle-wasm-browser": "^1.5.19"
   }
 }
