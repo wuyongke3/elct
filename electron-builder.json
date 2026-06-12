@@ -1,42 +1,34 @@
 {
   "$schema": "./node_modules/app-builder-lib/scheme.json",
-  "appId": "YourAppID",
+  "appId": "com.easygo.gif-toolbox",
   "asar": true,
-  "productName": "YourAppName",
+  "productName": "GIF 工具箱",
+  "copyright": "Copyright © 2026 easygo",
   "directories": {
-    "output": "release/${version}"
+    "output": "dist/${os}"
   },
   "files": [
     "dist",
     "dist-electron"
   ],
   "mac": {
-    "target": [
-      "dmg"
-    ],
-    "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
+    "target": ["dmg"],
+    "artifactName": "${productName}-v${version}-macOS.${ext}",
+    "category": "public.app-category.utilities"
   },
   "win": {
-    "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64"
-        ]
-      }
-    ],
-    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+    "target": [{ "target": "nsis", "arch": ["x64"] }],
+    "artifactName": "${productName}-v${version}-win64.${ext}"
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "artifactName": "${productName}-v${version}-linux.${ext}",
+    "category": "Utility"
   },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
     "deleteAppDataOnUninstall": false
-  },
-  "linux": {
-    "target": [
-      "AppImage"
-    ],
-    "artifactName": "${productName}-Linux-${version}.${ext}"
   }
 }

@@ -9,12 +9,11 @@ declare module 'gifsicle-wasm-browser' {
     command: string[];
     outputDir?: string;
     exitOnWarning?: boolean;
+    isStrict?: boolean;
   }
 
-  interface GifsicleResult extends Array<File> {}
-
   const gifsicle: {
-    run: (options: GifsicleOptions) => Promise<GifsicleResult>;
+    run: (options: GifsicleOptions) => Promise<File[]>;
   };
 
   export default gifsicle;

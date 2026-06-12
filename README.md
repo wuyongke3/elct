@@ -1,59 +1,44 @@
-# electron-vite-vue
+# GIF 工具箱
 
-🥳 Really simple `Electron` + `Vue` + `Vite` boilerplate.
+一个基于 Electron + Vue + Vite 的桌面端 GIF 编辑工具，支持抽帧、压缩等功能。
 
-[![GitHub Build](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml/badge.svg)](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml)
-[![GitHub Discord](https://img.shields.io/badge/chat-discord-blue?logo=discord)](https://discord.gg/sRqjYpEAUK)
+## 功能
 
-## Features
+- **抽帧**：加载 GIF 所有帧预览，选中后删除指定帧；支持每隔 N 帧自动删除
+- **压缩**：O1/O2/O3 优化等级、有损压缩（lossy）、颜色数限制、缩放比例
+- **调整尺寸**：等比/自由缩放
+- **其他**：旋转（90°/180°/270°）、循环次数设置、倒放、导出单帧
 
-📦 Out of the box
-🎯 Based on the official [template-vue-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-vue-ts), less invasive
-🌱 Extensible, really simple directory structure
-💪 Support using Node.js API in Electron-Renderer
-🔩 Support C/C++ native addons
-🖥 It's easy to implement multiple windows
+## 技术栈
 
-## Quick Setup
+- Electron 42
+- Vue 3 + TypeScript
+- Vite 8
+- gifsicle-wasm-browser（WASM 版 gifsicle）
+
+## 快速开始
 
 ```sh
-# clone the project
-git clone https://github.com/electron-vite/electron-vite-vue.git
-
-# enter the project directory
-cd electron-vite-vue
-
-# install dependency
+# 安装依赖
 npm install
 
-# develop
+# 开发模式
 npm run dev
+
+# 打包 Windows
+npm run build:win
+
+# 打包 macOS
+npm run build:mac
+
+# 打包 Linux
+npm run build:linux
 ```
 
-## Debug
+打包产物在 `dist/windows` / `dist/mac` / `dist/linux` 目录下。
 
-![electron-vite-react-debug.gif](https://github.com/electron-vite/electron-vite-react/blob/main/electron-vite-react-debug.gif?raw=true)
+## 版权
 
-## Directory
+Copyright © 2026 [easygo](https://github.com/wuyongke3)
 
-```diff
-+ ├─┬ electron
-+ │ ├─┬ main
-+ │ │ └── index.ts    entry of Electron-Main
-+ │ └─┬ preload
-+ │   └── index.ts    entry of Preload-Scripts
-  ├─┬ src
-  │ └── main.ts       entry of Electron-Renderer
-  ├── index.html
-  ├── package.json
-  └── vite.config.ts
-```
-
-## Security Note
-
-The `renderer: {}` preset in `vite.config.ts` is only a Vite adapter that polyfills Electron, Node.js APIs and native modules for the renderer process. It is not the same as enabling Node integration. If you want direct Node.js access in the renderer, enable `nodeIntegration` in the `BrowserWindow` webPreferences in the main process and review the security impact carefully.
-
-## FAQ
-
-- [C/C++ addons, Node.js modules - Pre-Bundling](https://github.com/electron-vite/vite-plugin-electron-renderer#dependency-pre-bundling)
-- [dependencies vs devDependencies](https://github.com/electron-vite/vite-plugin-electron-renderer#dependencies-vs-devdependencies)
+MIT License
